@@ -313,7 +313,19 @@
     }
 
     // /////////////////
-    NSURL* appURL = [self appUrl];
+
+    NSURLComponents *components = [NSURLComponents new];
+    [components setScheme:@"file"];
+    [components setPath:[self appUrl].path];
+
+    NSURLQueryItem *countryItem = [NSURLQueryItem queryItemWithName:@"country" value:@"AT"];
+    NSURLQueryItem *pathItem = [NSURLQueryItem queryItemWithName:@"path" value:@"/payments/payment-orders/signature-folder"];
+    NSURLQueryItem *environmentItem = [NSURLQueryItem queryItemWithName:@"environment" value:@"dev_george-business"];
+    components.queryItems = @[countryItem, pathItem, environmentItem];
+
+    NSURL* appURL = [components URL];
+
+//    NSURL* appURL = [self appUrl];
 
     if (appURL) {
         NSURLRequest* appReq = [NSURLRequest requestWithURL:appURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];
