@@ -319,7 +319,7 @@
     [components setPath:[self appUrl].path];
 
     NSURLQueryItem *countryItem = [NSURLQueryItem queryItemWithName:@"country" value:@"AT"];
-    NSURLQueryItem *pathItem = [NSURLQueryItem queryItemWithName:@"path" value:@"/payment-form/accounts/detail/C1DFD89E21055A04/new-transfer"];
+    NSURLQueryItem *pathItem = [NSURLQueryItem queryItemWithName:@"path" value:@"/payment-form/new-transfer"];
     NSURLQueryItem *environmentItem = [NSURLQueryItem queryItemWithName:@"environment" value:@"dev_george-business"];
     components.queryItems = @[countryItem, pathItem, environmentItem];
 
