@@ -313,7 +313,6 @@ static void * KVOContext = &KVOContext;
 
 - (id)loadRequest:(NSURLRequest*)request
 {
-//    NSURL *url = [[NSURL URLWithString:self.CDV_ASSETS_URL] URLByAppendingPathComponent:request.URL.path];
     NSURL *customURL = [NSURL URLWithString:[@"?" stringByAppendingString:request.URL.query] relativeToURL:[NSURL URLWithString:@"app://localhost/index.html"]];
     request = [NSURLRequest requestWithURL:customURL];
     return [(WKWebView*)_engineWebView loadRequest:request];
