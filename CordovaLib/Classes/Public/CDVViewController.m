@@ -205,7 +205,7 @@
 {
     NSURL* appURL = nil;
 
-    if ([self.startPage rangeOfString:@":/"].location != NSNotFound) {
+    if ([self.startPage rangeOfString:@"://"].location != NSNotFound) {
         appURL = [NSURL URLWithString:self.startPage];
     } else if ([self.wwwFolderName rangeOfString:@"://"].location != NSNotFound) {
         appURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", self.wwwFolderName, self.startPage]];
@@ -314,18 +314,18 @@
 
     // /////////////////
 
-    NSURLComponents *components = [NSURLComponents new];
-    [components setScheme:@"file"];
-    [components setPath:[self appUrl].path];
+//    NSURLComponents *components = [NSURLComponents new];
+//    [components setScheme:@"file"];
+//    [components setPath:[self appUrl].path];
+//
+//    NSURLQueryItem *countryItem = [NSURLQueryItem queryItemWithName:@"country" value:@"AT"];
+//    NSURLQueryItem *pathItem = [NSURLQueryItem queryItemWithName:@"path" value:@"/payment-form/new-transfer"];
+//    NSURLQueryItem *environmentItem = [NSURLQueryItem queryItemWithName:@"environment" value:@"dev_george-business"];
+//    components.queryItems = @[countryItem, environmentItem, pathItem];
+//
+//    NSURL* appURL = [components URL];
 
-    NSURLQueryItem *countryItem = [NSURLQueryItem queryItemWithName:@"country" value:@"AT"];
-    NSURLQueryItem *pathItem = [NSURLQueryItem queryItemWithName:@"path" value:@"/payment-form/new-transfer"];
-    NSURLQueryItem *environmentItem = [NSURLQueryItem queryItemWithName:@"environment" value:@"dev_george-business"];
-    components.queryItems = @[countryItem, environmentItem, pathItem];
-
-    NSURL* appURL = [components URL];
-
-//    NSURL* appURL = [self appUrl];
+    NSURL* appURL = [self appUrl];
 
     if (appURL) {
         NSURLRequest* appReq = [NSURLRequest requestWithURL:appURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];
