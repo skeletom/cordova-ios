@@ -313,7 +313,8 @@ static void * KVOContext = &KVOContext;
 
 - (id)loadRequest:(NSURLRequest*)request
 {
-    self.cdvIsFileScheme = true;
+    return [(WKWebView*)_engineWebView loadRequest:request];
+
     if ([self canLoadRequest:request]) { // can load, differentiate between file urls and other schemes
         if(request.URL.fileURL && self.cdvIsFileScheme) {
             NSURL* readAccessUrl = [request.URL URLByDeletingLastPathComponent];
