@@ -205,7 +205,7 @@
 {
     NSURL* appURL = nil;
 
-    if ([self.startPage rangeOfString:@"://"].location != NSNotFound) {
+    if ([self.startPage rangeOfString:@":/"].location != NSNotFound) {
         appURL = [NSURL URLWithString:self.startPage];
     } else if ([self.wwwFolderName rangeOfString:@"://"].location != NSNotFound) {
         appURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", self.wwwFolderName, self.startPage]];
