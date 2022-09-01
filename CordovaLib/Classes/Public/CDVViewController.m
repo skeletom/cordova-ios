@@ -314,18 +314,18 @@
 
     // /////////////////
 
-//    NSURLComponents *components = [NSURLComponents new];
-//    [components setScheme:@"file"];
-//    [components setPath:[self appUrl].path];
-//
-//    NSURLQueryItem *countryItem = [NSURLQueryItem queryItemWithName:@"country" value:@"AT"];
-//    NSURLQueryItem *pathItem = [NSURLQueryItem queryItemWithName:@"path" value:@"/payment-form/new-transfer"];
-//    NSURLQueryItem *environmentItem = [NSURLQueryItem queryItemWithName:@"environment" value:@"dev_george-business"];
-//    components.queryItems = @[countryItem, environmentItem, pathItem];
-//
-//    NSURL* appURL = [components URL];
+    NSURLComponents *components = [NSURLComponents new];
+    [components setScheme:@"file"];
+    [components setPath:[self appUrl].path];
 
-    NSURL* appURL = [self appUrl];
+    NSURLQueryItem *countryItem = [NSURLQueryItem queryItemWithName:@"country" value:@"AT"];
+    NSURLQueryItem *pathItem = [NSURLQueryItem queryItemWithName:@"path" value:@"/payment-form/new-transfer"];
+    NSURLQueryItem *environmentItem = [NSURLQueryItem queryItemWithName:@"environment" value:@"dev_george-business"];
+    components.queryItems = @[countryItem, environmentItem, pathItem];
+
+    NSURL* appURL = [components URL];
+
+//    NSURL* appURL = [self appUrl];
 
     if (appURL) {
         NSURLRequest* appReq = [NSURLRequest requestWithURL:appURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];
