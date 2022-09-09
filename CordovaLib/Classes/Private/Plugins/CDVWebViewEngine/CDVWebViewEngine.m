@@ -316,7 +316,7 @@ static void * KVOContext = &KVOContext;
 //    NSURL *customURL = [NSURL URLWithString:[@"?" stringByAppendingString:request.URL.query] relativeToURL:[NSURL URLWithString:@"app://localhost/index.html"]];
 //    request = [NSURLRequest requestWithURL:customURL];
 //    return [(WKWebView*)_engineWebView loadRequest:request];
-
+    self.CDV_ASSETS_URL = @"https://george-business.fat.sparkasse.at";
     if ([self canLoadRequest:request]) { // can load, differentiate between file urls and other schemes
         if(request.URL.fileURL && self.cdvIsFileScheme) {
             NSURL* readAccessUrl = [request.URL URLByDeletingLastPathComponent];
