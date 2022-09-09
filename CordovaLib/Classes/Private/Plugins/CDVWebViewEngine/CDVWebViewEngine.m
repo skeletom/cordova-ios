@@ -313,7 +313,7 @@ static void * KVOContext = &KVOContext;
 
 - (id)loadRequest:(NSURLRequest*)request
 {
-    self.CDV_ASSETS_URL = @"app://localhost";
+    self.CDV_ASSETS_URL = @"http://george-business.fat.sparkasse.at";
     if ([self canLoadRequest:request]) { // can load, differentiate between file urls and other schemes
         if(request.URL.fileURL && self.cdvIsFileScheme) {
             NSURL* readAccessUrl = [request.URL URLByDeletingLastPathComponent];
