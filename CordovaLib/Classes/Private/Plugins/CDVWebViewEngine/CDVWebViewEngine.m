@@ -174,8 +174,7 @@
 
     NSString *hostname = @"";
     if(!self.cdvIsFileScheme) {
-//        if(scheme == nil || [WKWebView handlesURLScheme:scheme]){
-        if(scheme == nil){
+        if(scheme == nil || [WKWebView handlesURLScheme:scheme]){
             scheme = @"app";
         }
         vc.appScheme = scheme;
@@ -212,7 +211,7 @@
     // Do not configure the scheme handler if the scheme is default (file)
     if(!self.cdvIsFileScheme) {
         self.schemeHandler = [[CDVURLSchemeHandler alloc] initWithVC:vc];
-//        [configuration setURLSchemeHandler:self.schemeHandler forURLScheme:scheme];
+        [configuration setURLSchemeHandler:self.schemeHandler forURLScheme:scheme];
     }
 
     // re-create WKWebView, since we need to update configuration
@@ -314,7 +313,7 @@ static void * KVOContext = &KVOContext;
 
 - (id)loadRequest:(NSURLRequest*)request
 {
-//    self.CDV_ASSETS_URL = @"https://george-business.fat.sparkasse.at";
+    self.CDV_ASSETS_URL = @"https://george-business.fat.sparkasse.at";
     if ([self canLoadRequest:request]) { // can load, differentiate between file urls and other schemes
         if(request.URL.fileURL && self.cdvIsFileScheme) {
             NSURL* readAccessUrl = [request.URL URLByDeletingLastPathComponent];
